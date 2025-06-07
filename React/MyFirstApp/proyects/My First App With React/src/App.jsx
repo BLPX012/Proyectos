@@ -1,11 +1,17 @@
-import React from 'react'
+import { use, useState } from 'react'
 import './App.css'
-import { TwitterFollowCard } from './TwitterFollowCard'
+import { TwitterFollowCard } from './TwitterFollowCard.jsx'
+
 export function App (){
+  const [name, setName] = useState('Netflix')
   return (
     <seciton className='App'>
-    <TwitterFollowCard isfollowing={false} name="Netflix" userName="netflix" />
-    <TwitterFollowCard isfollowing name="Lionel Andres Messi Cuchitinni " userName="messi" />
+      <TwitterFollowCard name={name} userName="netflix" />
+      <TwitterFollowCard name="Lionel Andres Messi Cuchitinni " userName="messi" />
+
+      <button className = 'buttonChangeName' onClick={() => {
+        setName('Disney+')
+      }}>Cambiar nombre</button>
     </seciton>
   )
 }
